@@ -1,0 +1,23 @@
+/* Fade overlay ONLY when hovering a slide */
+.carousel:hover #hoverOverlay,
+#hoverOverlay:hover {
+  opacity: 1;
+}
+
+/* Overlay arrows clickable */
+#hoverLeft, #hoverRight {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Mobile: always show overlay */
+@media (hover: none) {
+  #hoverOverlay {
+    opacity: 1 !important;
+  }
+}
+
+/* Smooth modal fade */
+#projectModal {
+  transition: opacity 0.3s ease;
+}

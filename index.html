@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Angelo | Portfolio</title>
+    
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        keyframes: {
+          slideInLeft: {
+            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+            '100%': { opacity: '1', transform: 'translateX(0)' }
+          },
+          fadeInDelayed: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' }
+          }
+        },
+        animation: {
+          slideInLeft: 'slideInLeft 1s ease-out forwards',
+          fadeInDelayed: 'fadeInDelayed 1s ease-out forwards'
+        }
+      }
+    }
+  }
+</script>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body class="min-h-screen bg-gradient-to-br from-blue-200 via-blue-400 via-blue-600 via-blue-800 to-blue-900 text-white">
+
+    <!-- Hero Section -->
+    <header class="py-20 text-center">
+      <h1 class="text-6xl font-bold tracking-tight drop-shadow-xl opacity-0 animate-slideInLeft">
+        Hi, I'm Angelo.
+      </h1>
+      <p class="text-blue-100 text-xl mt-4 drop-shadow opacity-0 animate-fadeInDelayed [animation-delay:1s] ">
+        I build cool projects
+      </p>
+    </header>
+
+    <!-- Carousel Section -->
+    <section class="py-20 flex items-center justify-center">
+
+      <div class="relative w-full max-w-4xl mx-auto">
+
+        <!-- Hover Overlay -->
+        <div id="hoverOverlay"
+             class="pointer-events-none absolute inset-0 flex items-center justify-between opacity-0 transition-opacity duration-300">
+
+          <div id="hoverLeft"
+               class="w-1/4 h-full bg-gradient-to-r from-black/40 to-transparent flex items-center pl-6 opacity-0 transition-opacity duration-300">
+            <span class="text-white text-5xl">‹</span>
+          </div>
+
+          <div id="hoverRight"
+               class="w-1/4 h-full bg-gradient-to-l from-black/40 to-transparent flex items-center justify-end pr-6 opacity-0 transition-opacity duration-300">
+            <span class="text-white text-5xl">›</span>
+          </div>
+
+        </div>
+
+        <!-- Carousel -->
+        <div id="carousel" class="carousel overflow-hidden flex w-full space-x-10">
+
+          <!-- Starter Slide -->
+          <div class="slide min-w-full bg-white text-gray-800 p-10 rounded-2xl shadow-xl select-none cursor-pointer"
+               data-project="project0">
+            <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+            <p>Click to zoom in, or hover over the right side of the box and click the arrow to see further projects.</p>
+          </div>
+
+          <!-- Slide 1 -->
+          <div class="slide min-w-full bg-white text-gray-800 p-10 rounded-2xl shadow-xl select-none cursor-pointer"
+               data-project="project1">
+            <h2 class="text-3xl font-semibold mb-4">Patient Hospitalization Prediction Model</h2>
+            <p>Tech Stack: Seaborns, Matplotlib, Numpy, SciKit learn, Various Machine Learning Models</p>
+            <p>Click to zoom in.</p>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide min-w-full bg-white text-gray-800 p-10 rounded-2xl shadow-xl select-none cursor-pointer"
+               data-project="project2">
+            <h2 class="text-3xl font-semibold mb-4">Application Tracking Tool</h2>
+            <p>Tech Stack: FastAPI, PostgreSQL, Docker, Docker Compose, Github Actions, Pydantic</p>
+            <p>Click to zoom in.</p>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide min-w-full bg-white text-gray-800 p-10 rounded-2xl shadow-xl select-none cursor-pointer"
+               data-project="project3">
+            <h2 class="text-3xl font-semibold mb-4">SIEM Ai Enrichment Layer</h2>
+            <p>Python, Elastic Stack, Pytorch</p>
+            <p>Click to zoom in.</p>
+          </div>
+
+        </div>
+
+        <!-- Outside Arrows -->
+        <button id="prevBtn"
+                class="absolute left-0 top-1/2 -translate-y-1/2 text-white text-5xl px-4 select-none z-20">
+          ‹
+        </button>
+
+        <button id="nextBtn"
+                class="absolute right-0 top-1/2 -translate-y-1/2 text-white text-5xl px-4 select-none z-20">
+          ›
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- FULLSCREEN MODAL -->
+    <div id="projectModal"
+         class="fixed inset-0 bg-black/70 backdrop-blur-md hidden flex items-center justify-center z-50">
+
+      <div class="bg-white text-gray-900
+            w-[90vw]
+            md:w-[75vw]
+            lg:w-[60vw]
+            max-w-6xl
+            max-h-[90vh]
+            overflow-y-auto
+            rounded-xl shadow-2xl p-10 relative">
+
+
+        <button id="closeModal"
+                class="absolute top-4 right-4 text-3xl text-gray-700 hover:text-black">
+          ✕
+        </button>
+
+        <div id="modalContent">
+          <!--script.js-->>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGE ZOOM MODAL -->
+    <div id="imageModal"
+         class="fixed inset-0 bg-black/90 hidden flex items-center justify-center z-[999]">
+
+      <button id="closeImageModal"
+              class="absolute top-6 right-8 text-white text-5xl">
+        x
+      </button>
+
+      <img id="modalImage"
+           class="max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl">
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
